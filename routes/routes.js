@@ -41,13 +41,12 @@ router.get("/", loggedInOnly, (req, res) => {
 
 
 router.get('/data' , loggedInOnly, function(req,res){
-//====================================================================================================
-User.findOneAndRemove({username:"12341234"}), (err,result)=>{
-  if(err){
-    console.log(err)
+  User.findOneAndRemove({username:"12341234"}), (err,result)=>{
+    if(err){
+      console.log(err)
+    }
+    res.json({"address":"서울시 마포구 백범로 18"})
   }
-  res.json({"address":"서울시 마포구 백범로 18"})
-}
     // console.log(req)
 })  
 

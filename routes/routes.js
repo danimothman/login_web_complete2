@@ -33,7 +33,7 @@ router.get("/", loggedInOnly, (req, res) => {
       if(err){
         done(err)
       }
-      console.log(req.user.username)
+      // console.log(req.user.username)
       res.render("index", { username: req.user.username , data:result});
     })
    
@@ -122,17 +122,19 @@ router.post('/content' ,function(req, res){
         }
     })    
 })
+
+
 router.post('/delete/:id',(req, res, next)=>{
+  console.log("fjjdljfdljlj")
   var id = req.params.id
-  consloe.log(req.params.id)
+  console.log(req.params.id)
   Content.findOneAndDelete({_id:id}, (err, result)=>{
     if(err){
       next(err)
     }
     res.redirect('/')
   })
-  res.send(req.params.id)
-
+  
 })
 // Logout Handler
 router.all("/logout", function(req, res) {
